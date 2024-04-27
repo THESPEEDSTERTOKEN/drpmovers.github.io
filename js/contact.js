@@ -24,7 +24,7 @@ function SendEmail(){
     Username : "thespeedster2022@gmail.com",
     Password : "C308F175C60AE4B09734ADB6113A7F40E14E",
     To : 'thespeedster2022@gmail.com',
-    From : 'thespeedster2022@gmail.com', ,
+    From : 'thespeedster2022@gmail.com',
     Subject : "This is a test Email",
     Body : "And this is the body"
   }).then(
