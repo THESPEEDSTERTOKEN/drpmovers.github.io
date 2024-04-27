@@ -29,7 +29,7 @@ function SendEmail(){
     Body : "And this is the body"
   }).then(
   message => {
-      if(message === 'ok'){
+      if(message == 'ok'){
       Swal.fire({
   
               title: 'Congrats!',
