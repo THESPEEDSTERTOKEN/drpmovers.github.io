@@ -25,7 +25,7 @@ function SendEmail(){
     Password : "C308F175C60AE4B09734ADB6113A7F40E14E",
     Port : "2525",
     To : 'thespeedster2022@gmail.com',
-    From : email ,
+    From : 'thespeedster2022@gmail.com', ,
     Subject : "This is a test Email",
     Body : "And this is the body"
   }).then(
