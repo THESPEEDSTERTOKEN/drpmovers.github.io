@@ -18,19 +18,32 @@ function SendEmail(){
       var email = $("#email").val();
       var content = $("#message").val();
   
+  const formData = new FormData();
+  
+  formData.append('name', fullname);
+  formData.append('email', email);
+  formData.append('message', content);
+  formData.append('access_key', 'da5424d0-5726-4645-8f87-0b2cbc6ab43c');
+  //Customize
+  formData.append('from_name', 'DPR Notifications');
+  formData.append('subject', 'New Form Submission from DPRMOVERSUGANDA');
  
-  Email.send({
-    Host : "smtp.elasticemail.com",
-    Username : "thespeedster2022@gmail.com",
-    Password : "C308F175C60AE4B09734ADB6113A7F40E14E",
-    To : 'thespeedster2022@gmail.com',
-    From : email,
-    Subject : "This is a test Email",
-    Body : message
-  }).then(
-  message => {
-      if(message == 'ok'){
-      Swal.fire({
+  const object = Object.fromEntries(formData);
+  const json = JSON.stringify(object);
+
+
+    fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+                Swal.fire({
   
               title: 'Congrats!',
   
@@ -48,9 +61,12 @@ function SendEmail(){
                 popup: 'animate__animated animate__fadeOutUp'
               }
             });
-      }else{
-          Swal.fire({
+
+            } else {
+                Swal.fire({
+
   
+
               icon: 'error',
   
               title: 'Oops...',
@@ -63,9 +79,26 @@ function SendEmail(){
                 popup: 'animate__animated animate__fadeOutUp'
               }
             });
-    }
-  }
-);
+            }
+        })
+        .catch(error => {
+            Swal.fire({
+              icon: 'error',
+  
+              title: 'Oops...',
+              text: 'Something Went Wrong!',
+              customClass: 'swal-height',
+              showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+              }
+            });
+        })
+        .then(function() {
+            form.reset();
+            }, 3000);
 
 
 }
