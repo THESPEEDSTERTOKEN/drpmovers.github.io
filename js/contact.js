@@ -28,7 +28,7 @@ function SendEmail(){
     Subject : "This is a test Email",
     Body : "And this is the body"
   }).then(
-  if(message == "ok"){
+  message => if(message == "ok"){
     Swal.fire({
 
             title: 'Congrats!',
@@ -47,7 +47,7 @@ function SendEmail(){
               popup: 'animate__animated animate__fadeOutUp'
             }
           });
-  }else{
+             }else{
         Swal.fire({
 
             icon: 'error',
