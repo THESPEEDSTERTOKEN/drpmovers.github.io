@@ -19,17 +19,69 @@ function SendEmail(){
       var content = $("#message").val();
   
  
-  Email.send({
-    Host : "smtp.elasticemail.com",
-    Username : "info@dprmoversuganda.com",
-    Password : "A72951DC3DEC22C851ADAF9137A102914CF6",
-    To : 'info@dprmoversuganda.com',
+//   Email.send({
+//     Host : "smtp.elasticemail.com",
+//     Username : "info@dprmoversuganda.com",
+//     Password : "A72951DC3DEC22C851ADAF9137A102914CF6",
+//     To : 'info@dprmoversuganda.com',
+//     From : email ,
+//     Subject : "This is a test Email",
+//     Body : "And this is the body"
+//   }).then(
+//   message => {
+//       if(message === "ok"){
+//       Swal.fire({
+  
+//               title: 'Congrats!',
+  
+//               text: 'Your Message is sent Successfully.',
+//               imageUrl: 'https://dprmoversuganda.com/images/logo.png',
+//               imageHeight: 70,
+//               imageAlt: 'DPRMOVERS UGANDA',
+//               width: 600,
+//               padding: '3em',
+//               backdrop: 'rgba(0,0,123,0.4) left top',
+//               showClass: {
+//                 popup: 'animate__animated animate__fadeInDown'
+//               },
+//               hideClass: {
+//                 popup: 'animate__animated animate__fadeOutUp'
+//               }
+//             });
+//       }else{
+//           Swal.fire({
+  
+//               icon: 'error',
+  
+//               title: 'Oops...',
+//               text: 'Something Went Wrong!',
+//               customClass: 'swal-height',
+//               showClass: {
+//                 popup: 'animate__animated animate__fadeInDown'
+//               },
+//               hideClass: {
+//                 popup: 'animate__animated animate__fadeOutUp'
+//               }
+//             });
+//     }
+//   }
+// );
+Email.send({
+
+    Host : "smtp.gmail.com",
+
+    Username : "searchoutmatters@gmail.com",
+    Password : "ithm wkej hcgc ziug",
+    Port : "587",
+    To : 'mungupaak@gmail.com',
     From : email ,
     Subject : "This is a test Email",
     Body : "And this is the body"
   }).then(
   message => {
+
       if(message === "ok"){
+
       Swal.fire({
   
               title: 'Congrats!',
@@ -66,54 +118,6 @@ function SendEmail(){
     }
   }
 );
-// Email.send({
-
-//     Host : "smtp.gmail.com",
-
-//     Username : "searchoutmatters@gmail.com",
-//     Password : "ithm wkej hcgc ziug",
-//     Port : "587",
-//     To : 'mungupaak@gmail.com',
-//     From : email ,
-//     Subject : "This is a test Email",
-//     Body : "And this is the body"
-//   }).then(
-//   if(message == "ok"){
-//     Swal.fire({
-
-//             title: 'Congrats!',
-
-//             text: 'Your Message is sent Successfully.',
-//             imageUrl: 'https://dprmoversuganda.com/images/logo.png',
-//             imageHeight: 70,
-//             imageAlt: 'DPRMOVERS UGANDA',
-//             width: 600,
-//             padding: '3em',
-//             backdrop: 'rgba(0,0,123,0.4) left top',
-//             showClass: {
-//               popup: 'animate__animated animate__fadeInDown'
-//             },
-//             hideClass: {
-//               popup: 'animate__animated animate__fadeOutUp'
-//             }
-//           });
-//   }else{
-//         Swal.fire({
-
-//             icon: 'error',
-
-//             title: 'Oops...',
-//             text: 'Something Went Wrong!',
-//             customClass: 'swal-height',
-//             showClass: {
-//               popup: 'animate__animated animate__fadeInDown'
-//             },
-//             hideClass: {
-//               popup: 'animate__animated animate__fadeOutUp'
-//             }
-//           });
-//   }
-// );
 
 }
 
