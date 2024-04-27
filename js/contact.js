@@ -28,40 +28,42 @@ function SendEmail(){
     Subject : "This is a test Email",
     Body : "And this is the body"
   }).then(
-  message => if(message == "ok"){
-    Swal.fire({
-
-            title: 'Congrats!',
-
-            text: 'Your Message is sent Successfully.',
-            imageUrl: 'https://dprmoversuganda.com/images/logo.png',
-            imageHeight: 70,
-            imageAlt: 'DPRMOVERS UGANDA',
-            width: 600,
-            padding: '3em',
-            backdrop: 'rgba(0,0,123,0.4) left top',
-            showClass: {
-              popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-              popup: 'animate__animated animate__fadeOutUp'
-            }
-          });
-             }else{
-        Swal.fire({
-
-            icon: 'error',
-
-            title: 'Oops...',
-            text: 'Something Went Wrong!',
-            customClass: 'swal-height',
-            showClass: {
-              popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-              popup: 'animate__animated animate__fadeOutUp'
-            }
-          });
+  message => {
+      if(message == "ok"){
+      Swal.fire({
+  
+              title: 'Congrats!',
+  
+              text: 'Your Message is sent Successfully.',
+              imageUrl: 'https://dprmoversuganda.com/images/logo.png',
+              imageHeight: 70,
+              imageAlt: 'DPRMOVERS UGANDA',
+              width: 600,
+              padding: '3em',
+              backdrop: 'rgba(0,0,123,0.4) left top',
+              showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+              }
+            });
+      }else{
+          Swal.fire({
+  
+              icon: 'error',
+  
+              title: 'Oops...',
+              text: 'Something Went Wrong!',
+              customClass: 'swal-height',
+              showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+              }
+            });
+    }
   }
 );
 // Email.send({
