@@ -21,7 +21,7 @@ function SendEmail(){
  
   Email.send({
     Host : "smtp.elasticemail.com",
-    Username : "thespeedster2022@gmail.com",
+    Username : "info@dprmoversuganda.com",
     Password : "A72951DC3DEC22C851ADAF9137A102914CF6",
     To : 'info@dprmoversuganda.com',
     From : email ,
@@ -201,14 +201,3 @@ function validateContactForm() {
 
       return valid;
 }
-
-
-var sender = "your.email@example.com"; // Replace with your email address
-var recipient = "recipient@example.com"; // Replace with the recipient's email address
-var subject = "DPR MOVERS CONTACT US";
-var body = "This is a test email sent from Google Apps Script.";
-
-// Send the email
-GmailApp.sendEmail(recipient, subject, body, {
-    from: sender
-  });
