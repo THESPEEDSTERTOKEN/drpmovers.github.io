@@ -4,8 +4,35 @@ function SubForm (){
         type:'post',
         data:$("#myForm").serializeArray(),
         success: function(){
-          Swal.fire({
+          
+        },
+        error: function(){
+
+        }
+    });
+}
+
+function SendEmail(){
+  
+      var fullname = $("#f_name").val() +' '+ $("#l_name").val();
+      var email = $("#email").val();
+      var content = $("#message").val();
+  
+ 
+  Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "thespeedster2022@gmail.com",
+    Password : "A72951DC3DEC22C851ADAF9137A102914CF6",
+    To : 'info@dprmoversuganda.com',
+    From : email ,
+    Subject : "This is a test Email",
+    Body : "And this is the body"
+  }).then(
+  if(message == "ok"){
+    Swal.fire({
+
             title: 'Congrats!',
+
             text: 'Your Message is sent Successfully.',
             imageUrl: 'https://dprmoversuganda.com/images/logo.png',
             imageHeight: 70,
@@ -20,11 +47,11 @@ function SubForm (){
               popup: 'animate__animated animate__fadeOutUp'
             }
           });
+  }else{
+        Swal.fire({
 
-        },
-        error: function(){
-          Swal.fire({
             icon: 'error',
+
             title: 'Oops...',
             text: 'Something Went Wrong!',
             customClass: 'swal-height',
@@ -35,49 +62,71 @@ function SubForm (){
               popup: 'animate__animated animate__fadeOutUp'
             }
           });
-        }
-    });
+  }
+);
+// Email.send({
+
+//     Host : "smtp.gmail.com",
+
+//     Username : "searchoutmatters@gmail.com",
+//     Password : "ithm wkej hcgc ziug",
+//     Port : "587",
+//     To : 'mungupaak@gmail.com',
+//     From : email ,
+//     Subject : "This is a test Email",
+//     Body : "And this is the body"
+//   }).then(
+//   if(message == "ok"){
+//     Swal.fire({
+
+//             title: 'Congrats!',
+
+//             text: 'Your Message is sent Successfully.',
+//             imageUrl: 'https://dprmoversuganda.com/images/logo.png',
+//             imageHeight: 70,
+//             imageAlt: 'DPRMOVERS UGANDA',
+//             width: 600,
+//             padding: '3em',
+//             backdrop: 'rgba(0,0,123,0.4) left top',
+//             showClass: {
+//               popup: 'animate__animated animate__fadeInDown'
+//             },
+//             hideClass: {
+//               popup: 'animate__animated animate__fadeOutUp'
+//             }
+//           });
+//   }else{
+//         Swal.fire({
+
+//             icon: 'error',
+
+//             title: 'Oops...',
+//             text: 'Something Went Wrong!',
+//             customClass: 'swal-height',
+//             showClass: {
+//               popup: 'animate__animated animate__fadeInDown'
+//             },
+//             hideClass: {
+//               popup: 'animate__animated animate__fadeOutUp'
+//             }
+//           });
+//   }
+// );
+
 }
 
 
 function ValidateEmail(form1){
 
   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  
-  // if(inputEmail.value == ""){
-    
-  // }else if(inputEmail.value.match(mailformat)){
-  //   // document.getElementById("button").innerHTML = "Loading...";
-  //   SubForm ();
 
-  //   document.getElementById("myForm").reset();
-  //   // document.getElementById("button").innerHTML = "Join Waitlist";
-  //   return true;
-    
-  // }
-  // else{
-  //   Swal.fire({
-  //     icon: 'error',
-  //     title: 'Oops...',
-  //     text: 'Wrong Email Entered!',
-  //     customClass: 'swal-height',
-  //     showClass: {
-  //       popup: 'animate__animated animate__fadeInDown'
-  //     },
-  //     hideClass: {
-  //       popup: 'animate__animated animate__fadeOutUp'
-  //     }
-  //   });
-
-  //   document.getElementById("myForm").reset();
-  //   return true;
-  // }
 
   var check = validateContactForm();
 
   if(check == true){
       if(form1.email.value.match(mailformat)){
         SubForm ();
+        SendEmail();
 
         document.getElementById("myForm").reset();
         // document.getElementById("button").innerHTML = "Join Waitlist";
@@ -150,3 +199,14 @@ function validateContactForm() {
 
       return valid;
 }
+
+
+var sender = "your.email@example.com"; // Replace with your email address
+var recipient = "recipient@example.com"; // Replace with the recipient's email address
+var subject = "DPR MOVERS CONTACT US";
+var body = "This is a test email sent from Google Apps Script.";
+
+// Send the email
+GmailApp.sendEmail(recipient, subject, body, {
+    from: sender
+  });
